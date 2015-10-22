@@ -70,7 +70,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     }
     private void doLogin(String name, String password) {
         String url = "http://10.0.4.170:8080/DogLegWeb/login.do";
-        password = getMD5(password);
+        password = CommonUtil.getMD5(password);
         OkHttpClient okHttpClient = new OkHttpClient();
         FormEncodingBuilder builder = new FormEncodingBuilder();
         builder.add("userName",name);
@@ -104,26 +104,5 @@ public class LoginActivity extends Activity implements View.OnClickListener{
             }
         });
 
-    }
-    private String getMD5(String info) {
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.update(info.getBytes("UTF-8"));
-            byte[] encryption = md5.digest();
-            StringBuffer strBuf = new StringBuffer();
-            for (int i = 0; i < encryption.length; i++) {
-                if (Integer.toHexString(0xff & encryption[i]).length() == 1) {
-                    strBuf.append("0").append(Integer.toHexString(0xff & encryption[i]));
-                }
-                else {
-                    strBuf.append(Integer.toHexString(0xff & encryption[i]));
-                }
-            }
-            return strBuf.toString();
-        } catch (NoSuchAlgorithmException e) {
-            return "";
-        } catch (UnsupportedEncodingException e) {
-            return "";
-        }
     }
 }

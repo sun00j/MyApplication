@@ -12,4 +12,9 @@
     <string name="name_not_null">UserName Cannot be null!</string>
     <string name="password_not_null">Password Cannot be null!</string>
     <string name="name_pwd_error">Name or Password error!</string>
+    <string name="repeat_pwd">Repeat Password</string>
+    <string name="submit">Submit</string>
+    <string name="pwd_too_short">Password too short!</string>
+    <string name="pwd_not_same">Password not same!</string>
+    <string name="name_exist">Username already exists!</string>
 </resources>
