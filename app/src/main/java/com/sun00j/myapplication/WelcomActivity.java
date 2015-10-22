@@ -25,6 +25,7 @@ public class WelcomActivity extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(WelcomActivity.this,LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         },2000);
 

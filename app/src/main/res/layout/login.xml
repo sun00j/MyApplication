@@ -60,7 +60,8 @@
             android:text="@string/register"
             android:clickable="true"
             android:textColor="@color/link_color"
-            android:id="@+id/register"/>
+            android:id="@+id/register"
+            android:background="@drawable/text_background"/>
     </LinearLayout>
 
 </LinearLayout>

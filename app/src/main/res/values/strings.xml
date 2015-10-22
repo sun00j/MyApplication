@@ -11,4 +11,5 @@
     <string name="register">Sign Up</string>
     <string name="name_not_null">UserName Cannot be null!</string>
     <string name="password_not_null">Password Cannot be null!</string>
+    <string name="name_pwd_error">Name or Password error!</string>
 </resources>
