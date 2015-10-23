@@ -17,4 +17,5 @@
     <string name="pwd_too_short">密码至少为六位！</string>
     <string name="pwd_not_same">两次输入密码不一致！</string>
     <string name="name_exist">用户名已存在</string>
+    <string name="register_sucess">注册成功</string>
 </resources>

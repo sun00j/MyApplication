@@ -26,6 +26,7 @@ public class RegisterActivity extends Activity {
     private EditText repeat_pwd;
     private Button submit;
     private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,18 +42,18 @@ public class RegisterActivity extends Activity {
                 String nameStr = userName.getText().toString();
                 String pwdStr = password.getText().toString();
                 String repeatStr = repeat_pwd.getText().toString();
-                if(nameStr.length() < 1) {
-                    Toast.makeText(mContext,R.string.name_not_null,Toast.LENGTH_SHORT).show();
-                } else if(pwdStr.length() < 6) {
-                    Toast.makeText(mContext,R.string.pwd_too_short,Toast.LENGTH_SHORT).show();
-                } else if(!pwdStr.equals(repeatStr)) {
-                    Toast.makeText(mContext,R.string.pwd_not_same,Toast.LENGTH_SHORT).show();
+                if (nameStr.length() < 1) {
+                    Toast.makeText(mContext, R.string.name_not_null, Toast.LENGTH_SHORT).show();
+                } else if (pwdStr.length() < 6) {
+                    Toast.makeText(mContext, R.string.pwd_too_short, Toast.LENGTH_SHORT).show();
+                } else if (!pwdStr.equals(repeatStr)) {
+                    Toast.makeText(mContext, R.string.pwd_not_same, Toast.LENGTH_SHORT).show();
                 } else {
                     String url = "http://10.0.4.170:8080/DogLegWeb/addUser.do";
                     pwdStr = CommonUtil.getMD5(pwdStr);
                     OkHttpClient okHttpClient = new OkHttpClient();
                     FormEncodingBuilder builder = new FormEncodingBuilder();
-                    builder.add("userName",nameStr);
+                    builder.add("userName", nameStr);
                     builder.add("password", pwdStr);
                     final Request request = new Request.Builder()
                             .url(url)
@@ -71,10 +72,13 @@ public class RegisterActivity extends Activity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (result.equals("sucess")) {
-                                        Toast.makeText(mContext,R.string.name_exist,Toast.LENGTH_SHORT).show();
-                                    } else if (result.equals("fail")) {
+                                    if (result.equals("fail")) {
+                                        Toast.makeText(mContext, R.string.name_exist, Toast.LENGTH_SHORT).show();
+                                    } else if (result.equals("sucess")) {
+                                        Toast.makeText(mContext, R.string.register_sucess, Toast.LENGTH_SHORT).show();
                                         CommonUtil.online = true;
+                                        RegisterActivity.this.finish();
+
                                     }
                                 }
                             });

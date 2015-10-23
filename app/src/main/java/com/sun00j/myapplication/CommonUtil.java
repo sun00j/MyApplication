@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class CommonUtil {
     public static boolean online = false;
+
     public static String getMD5(String info) {
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
@@ -18,8 +19,7 @@ public class CommonUtil {
             for (int i = 0; i < encryption.length; i++) {
                 if (Integer.toHexString(0xff & encryption[i]).length() == 1) {
                     strBuf.append("0").append(Integer.toHexString(0xff & encryption[i]));
-                }
-                else {
+                } else {
                     strBuf.append(Integer.toHexString(0xff & encryption[i]));
                 }
             }

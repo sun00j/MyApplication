@@ -17,4 +17,5 @@
     <string name="pwd_too_short">Password too short!</string>
     <string name="pwd_not_same">Password not same!</string>
     <string name="name_exist">Username already exists!</string>
+    <string name="register_sucess">Successfully registered</string>
 </resources>

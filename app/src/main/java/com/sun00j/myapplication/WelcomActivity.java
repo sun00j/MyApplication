@@ -3,13 +3,9 @@ package com.sun00j.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.squareup.okhttp.OkHttpClient;
-
-import android.os.Handler;
-import java.util.logging.LogRecord;
 
 
 public class WelcomActivity extends Activity {
@@ -23,11 +19,11 @@ public class WelcomActivity extends Activity {
             @Override
             public void run() {
                 Intent intent = new Intent();
-                intent.setClass(WelcomActivity.this,LoginActivity.class);
+                intent.setClass(WelcomActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        }, 2000);
 
     }
 
