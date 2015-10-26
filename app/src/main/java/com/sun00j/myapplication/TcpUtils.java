@@ -16,6 +16,7 @@ public class TcpUtils implements Runnable {
     private Socket mSocket;
     private BufferedReader br;
     private OutputStream os;
+    private GameView.TcpCallBack tcpCallBack;
     private String url = "10.0.4.170";
     public void TcpUtils() {
         try {
@@ -42,6 +43,9 @@ public class TcpUtils implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void setCallBack(GameView.TcpCallBack tcpCallBack) {
+        this.tcpCallBack = tcpCallBack;
     }
 
 }

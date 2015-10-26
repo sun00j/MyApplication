@@ -17,6 +17,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback,View
     boolean threadFlag = true;
     SurfaceHolder holder;
     Canvas canvas;
+    private TcpUtils tcpUtils;
     public GameView(Context context) {
         super(context);
         mContext = context;
@@ -26,8 +27,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback,View
     }
 
     @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+    }
+
+    @SuppressLint("WrongCall")
+    @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         new Thread(new TcpUtils()).start();
+        canvas = holder.lockCanvas();
+        onDraw(canvas);
+        holder.unlockCanvasAndPost(canvas);
+        tcpUtils = new TcpUtils();
     }
 
     @Override
@@ -66,4 +77,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback,View
         }
 
     };*/
+    interface TcpCallBack{
+        public void callBack();
+    }
 }
