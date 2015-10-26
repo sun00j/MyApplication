@@ -95,7 +95,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     @Override
                     public void run() {
                         if (result.equals("sucess")) {
-
+                            Intent intent = new Intent(LoginActivity.this,GameActivity.class);
+                            startActivity(intent);
+                            LoginActivity.this.finish();
                         } else if (result.equals("fail")) {
                             Toast.makeText(mContext, R.string.name_pwd_error, Toast.LENGTH_SHORT).show();
                         }
